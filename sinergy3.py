@@ -1,76 +1,62 @@
-# Задание 1
-# Тут как в задании написано будет выводить только "отрицательное четное число",
-#  "нулевое число", "положительное нечетное число"
-a = int(input("Введите целое число"))
-if a < 0:
-  if a % 2 == 0:
-    print("отрицательное четное число")
-elif a > 0:
-  if a % 2 != 0:
-    print("положительное нечетное число")
-elif a == 0:
-  print("нулевое число")
-
-# Второй вариант выполнения задания, в котором будут определяться все варианты ввода чисел 
-number = int(input("Введите целое число"))
+# задание 1
+number = int(input("Введите целое число: "))
 
 if number == 0:
-  print("нулевое число")
-elif number > 0:
-  if number % 2 == 0:
-    print("положительное четное число")
+    print("нулевое число")
+else:
+    if number > 0:
+      sign = "положительное"
+    else:
+      sign = "отрицательное"
+    if number % 2 == 0:
+      parity = "четное"
+      print(sign, parity, "число")
+    else:
+      parity = "нечетное"
+      print(sign, parity, "число")
+      print("число не является четным")     
+      
+
+# задание 2 
+
+word = input("Введите слово из маленьких латинских букв: ")
+
+vowels = {'a', 'e', 'i', 'o', 'u'}
+vowel_counts = {'a': 0, 'e': 0, 'i': 0, 'o': 0, 'u': 0}
+consonant_count = 0
+
+for letter in word:
+  if letter in vowels:
+    vowel_counts[letter] += 1
   else:
-    print("положительное нечетное число") 
-elif number < 0: 
-  if number % 2 == 0:
-    print("отрицательное четное число")
+    consonant_count += 1
+
+print(f"Согласных букв: {consonant_count}")
+print(f"Гласных букв: {sum(vowel_counts.values())}")
+
+for vowel in ['a', 'e', 'i', 'o', 'u']:
+  if vowel_counts[vowel] == 0:
+    print(f"{vowel}: False")
   else:
-    print("отрицательное нечетное число")   
-   
-
-#Задание 2
+    print(f"{vowel}: {vowel_counts[vowel]}")
 
 
+# задание 3 
 
+X = int(input("Введите минимальную сумму инвестиций X: "))
+A = int(input("Сколько долларов у Майкла? "))
+B = int(input("Сколько долларов у Ивана? "))
 
-
-
-   
-#Задание 3
-
-x = int(input("Минимальная сумма инвестиций:"))
-a = int (input("инвестиции Майкла:"))
-b = int(input("инвестиции Ивана:"))  
-
-
-if a >= x and b >= x:
+if A >= X and B >= X:
   print(2)
-elif a >= x:
-  print("mike")
-elif b >= x:
-  print("ivan")
-elif a + b == x:
+elif A >= X:
+  print("Mike")
+elif B >= X:
+  print("Ivan")
+elif A + B >= X:
   print(1)
 else:
-  print(0)  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  print(0)
 
 
 
